@@ -1,5 +1,4 @@
-</!DOCTYPE html>
-<html>
+<!DOCTYPE html>
 <head>
 
 	<title>Sample</title>
