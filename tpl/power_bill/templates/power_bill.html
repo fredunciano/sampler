@@ -1,0 +1,202 @@
+<style>
+div, body, html, table td, table.attachment-table-details-tbl td {
+   font-size: 8pt;
+   font-family: Arial;
+   border-spacing: 0px;
+   margin:0px;
+   padding: 0; 
+}
+h1 {
+	font-family: Calibri, Candara, Segoe, Opxima, Arial, sans-serif;
+}
+
+table td {
+    padding:4px; 
+    margin:0px;
+}
+
+table td.special_backg {
+    background-color:#B4C8E0;
+    color:#000000;
+    font-weight:bold;
+    font-size: 8pt;
+    font-family: Arial;
+    padding-left:2px;
+    border-bottom: 1px solid #B4C8E0;
+}
+
+table td.special_lined {
+	border-bottom:1px solid #000000;
+}
+
+td.charges {
+	text-align:right;
+	padding-right:10px;
+}
+
+
+table#billing_notes td {
+	padding:0px;
+        font-family: Arial;
+        font-size:7.5pt;
+}
+
+table#signatories td {
+	text-align:center;
+	padding:0px;
+}
+
+
+</style>
+<body>
+<div style="border:3px solid #000000;padding:0px;">
+
+<div>
+    <img src="{logo}" height="100px" width="240px" />
+</div>
+    <br>
+<div style="text-align:center;">
+	<span style="font-weight:bold;font-size:8pt; font-family: Arial;">Global Business Power</span><br>
+	<span style="font-size:8pt;font-family: Arial;">Corporate Office: 22nd Floor, GT Tower International 	
+</span><br>
+	<span style="font-size:8pt;font-family: Arial;">6813 Ayala Avenue Corner H.V. dela Costa Street</span><br>
+	<span style="font-size:8pt;font-family: Arial;">1227 Makati City, Philippines</span><br>
+	<span style="font-size:8pt;font-family: Arial;">Tel. # +632 464-1600</span><br>
+	<!--span style="font-size:9.5pt;font-family: Arial;">TIN: 000-000-000-000</span><br-->
+	<br>
+        <span style="font-size: 14pt;font-weight: bold;font-family: Arial;">POWER BILL</span>
+</div>	
+<br>
+<table cellspacing="0" cellpadding="0" width="100%" border="0" style="border-spacing: 0;">
+	<tr>
+		<td style="width:130px;" class="special_backg">Customer Name</td>
+		<td style="min-width:32%;" class="special_lined">{customer_fullname}</td>
+		<td style="width:130px;"  class="special_backg">Date Prepared</td>
+		<td style="min-width:32%;" class="special_lined">{date_prepared}	</td>
+	</tr>
+	<tr>
+		<td class="special_backg">Customer Type</td>
+		<td class="special_lined">{customer_type}</td>
+		<td class="special_backg">Due Date</td>
+		<td class="special_lined">{due_date}</td>
+	</tr>
+	
+	<tr>
+		<td class="special_backg">Billing Period</td>
+		<td class="special_lined">{billing_period_label}</td>
+		<td class="special_backg">Power Bill Number</td>
+		<td class="special_lined">{power_bill_no}</td>
+	</tr>
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+        
+</table>
+<table cellspacing="0" cellpadding="0" width="100%"  border="0" style="border-spacing: 0;">
+    <tr>
+            <td style="width:220px;" class="special_backg">{total_final_hcq_label}</td>
+            <td class="special_lined charges"  > {total_final_hcq}&nbsp;</td>
+            <td style="width:220px;"  class="special_backg">{kscp_price_label} (P/kWh)</td>
+            <td style="width:70px;" class="special_lined charges" > {kspc_load_factor_price}&nbsp; </td>
+    </tr>	
+    {additional_headers}
+</table>
+<table cellspacing="0" cellpadding="0" width="100%"  border="0" style="border-spacing: 0;">
+	<tr>
+		<td colspan="4" style="font-family: Arial; text-align:center;font-size: 16px; font-weight: bold;text-decoration: underline;">SUMMARY OF CHARGES (PHP)</td>
+	</tr>
+        <!--
+        <tr>
+		<td colspan="5">&nbsp;</td>
+	</tr>
+        -->
+	<tr>
+		<td style="border-top:1px solid #000000; border-right:1px solid #000000;" >&nbsp;</td>
+		<td style="border-top:1px solid #000000; width:22%; border-right:1px solid #000000; text-align:center; font-weight: bold;" >Before VAT</td>
+		<td style="border-top:1px solid #000000; width:22%; border-right:1px solid #000000; text-align:center;font-weight: bold;" >12% VAT</td>
+		<td style="border-top:1px solid #000000; width:22%;  text-align:center;font-weight: bold;" >After VAT</td>
+	</tr>
+        {commercial_power_revenue_rows}
+	
+	<tr>
+		<td style="border-right:1px solid #000000;" class="special_backg" >Market Fee: Previous Billing Period</td>
+		<td style="border-right:1px solid #000000;" class="charges"> {prev_billing_market_fee_before_vat}	 </td>
+		<td style="border-right:1px solid #000000;" class="charges">  {prev_billing_market_fee_12percent_vat} 	</td>
+		<td style=""  class="charges"> {prev_billing_market_fee_after_vat} 	 </td>
+	</tr>
+	<tr>
+		<td style="border-right:1px solid #000000;padding-left:30px;" >{prev_billing_market_fee_billing_period}			</td>
+		<td style="border-right:1px solid #000000;" class="charges"> </td>
+		<td style="border-right:1px solid #000000;" class="charges"> </td>
+		<td class="charges"> </td>
+	</tr>
+	<tr>
+		<td style="border-right:1px solid #000000;" ></td>
+		<td style="border-right:1px solid #000000;" class="charges"> </td>
+		<td style="border-right:1px solid #000000;" class="charges"></td>
+		<td style=""  class="charges"> </td>
+	</tr>
+	<tr>
+		<td style="border-right:1px solid #000000;" class="special_backg" >DOE ER 1-94 (0% VAT)</td>
+		<td style="border-right:1px solid #000000;" class="charges">  {doe_before_vat} 	</td>
+		<td style="border-right:1px solid #000000;" class="charges">  {doe_12percent_vat}</td>
+		<td class="charges">  {doe_after_vat} </td>
+	</tr>
+	<tr>
+		<td style="border-right:1px solid #000000;" ></td>
+		<td style="border-right:1px solid #000000;" class="charges"> </td>
+		<td style="border-right:1px solid #000000;" class="charges"></td>
+		<td style=""  class="charges"> </td>
+	</tr>
+        {additional_charges_rows}
+	<tr>
+		<td style="border-top:1px solid #000000; border-bottom:1px solid #000000; border-right:1px solid #000000;font-weight: bold; font-size: 10pt;">TOTAL AMOUNT DUE (Php) </td>
+		<td style="border-top:1px solid #000000; border-bottom:1px solid #000000; border-right:1px solid #000000;font-weight: bold;" class="charges"> {total_amount_due_before_vat}</td>
+		<td style="border-top:1px solid #000000; border-bottom:1px solid #000000; border-right:1px solid #000000;font-weight: bold;" class="charges"> {total_amount_due_12percent_vat}	  </td>
+		<td style="border-top:1px solid #000000; border-bottom:1px solid #000000; font-weight: bold;"  class="charges">{total_amount_due_after_vat} </td>
+	</tr>
+</table>
+<br>
+<div style="padding:10px;">
+{notes}   
+<table width="100%" id="billing_addtl_notes"  border="0" style="border-spacing: 0;">
+        {additional_notes}
+</table>
+</div>
+
+<table width="100%" id="billing_notes"  border="0" style="border-spacing: 0;">
+    <tr>
+            <td colspan="4" style="border-bottom:1px solid #000000;">&nbsp;</td>
+    </tr>
+</table>
+<br>
+<div style="padding-left:30px;">
+    <table cellspacing="0" cellpadding="0" width="100%" id="signatories">
+	<tr>
+		<td style="min-width:25%;text-align:left;">Prepared by:	</td>
+		<td style="min-width:25%;text-align:left;" >Reviewed by:	</td>
+		<td style="min-width:25%;text-align:left;" >Noted by:	</td>
+		<td style="min-width:25%;text-align:left;" >Approved by:</td>
+	</tr>
+	<tr><td colspan=4>&nbsp;</td></tr>
+        <tr><td colspan=4>&nbsp;</td></tr>
+        <tr><td colspan=4>&nbsp;</td></tr>
+        
+	<tr>
+		<td style="min-width:25%; text-decoration:underline; font-weight:bold;text-align:left;">{prepared_by}</td>
+		<td style="min-width:25%; text-decoration:underline; font-weight:bold;text-align:left;" >{reviewed_by}</td>
+		<td style="min-width:25%; text-decoration:underline; font-weight:bold;text-align:left;" >{noted_by}</td>
+		<td style="min-width:25%; text-decoration:underline; font-weight:bold;text-align:left;" >{approved_by}</td>
+	</tr>
+	<tr>
+		<td style="min-width:25%;text-align:left;"> B/S Officer	</td>
+		<td style="min-width:25%;text-align:left;" > B/C Officer	</td>
+		<td style="min-width:25%;text-align:left;" >A/M Marketing		</td>
+		<td style="min-width:25%;text-align:left; " >Marketing Manager</td>
+	</tr>
+</table>
+</div>
+<br>
+
+</div>	
+</body>

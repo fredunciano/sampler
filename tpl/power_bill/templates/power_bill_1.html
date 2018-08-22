@@ -1,0 +1,243 @@
+<style>
+div, body, html, table td, table.attachment-table-details-tbl td {
+   font-size: 12px;
+   font-family: Calibri;
+}
+h1 {
+	font-family: Calibri, Candara, Segoe, Opxima, Arial, sans-serif;
+}
+
+table td {
+    padding:0px;
+    margin:0px;
+}
+
+table td.special_backg {
+	background-color:#B7CAE2;
+        color:#000000;
+	font-weight:bold;
+        font-size:12px;
+}
+
+table td.special_lined {
+	border-bottom:1px solid #000000;
+}
+
+td.charges {
+	text-align:right;
+	padding-right:10px;
+}
+
+
+table#billing_notes td {
+	padding:0px;
+}
+
+table#signatories td {
+	text-align:center;
+	padding:0px;
+}
+
+
+</style>
+<body>
+<div style="border:3px solid #000000;padding:0px;">
+
+<div>
+    <img src="{logo}" height="40.65" width="240px" />
+</div>
+    <br>
+<div style="text-align:center;">
+	<span style="font-weight:bold;font-size:12px;">KEPCO-SPC Power Corporation</span><br>
+	<span style="font-size:12px;">Cebu Office: Brgy. Colon, Naga Cebu</span><br>
+	<span style="font-size:12px;">Tel. # 032 505-4065 / 70 ~ 71, Fax # 032 272-9794 / 489-7010</span><br>
+	<span style="font-size:12px;">Polycom # 032 236-8276</span><br>
+	<span style="font-size:12px;">TIN: 244-498-539-000</span><br>
+	<br>
+        <span style="font-size: 18px;font-weight: bold;">POWER BILL</span>
+</div>	
+<br>
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+	<tr>
+		<td style="width:130px;" class="special_backg">Customer Name</td>
+		<td style="min-width:32%;" class="special_lined">{customer_fullname}</td>
+		<td style="width:130px;"  class="special_backg">Date Prepared</td>
+		<td style="min-width:32%;" class="special_lined">{date_prepared}	</td>
+	</tr>
+	<tr>
+		<td class="special_backg">Customer Type</td>
+		<td class="special_lined">{customer_type}</td>
+		<td class="special_backg">Due Date</td>
+		<td class="special_lined">{due_date}</td>
+	</tr>
+	
+	<tr>
+		<td class="special_backg">Billing Period</td>
+		<td class="special_lined">{billing_period_label}</td>
+		<td class="special_backg">Power Bill Number</td>
+		<td class="special_lined">{power_bill_no}</td>
+	</tr>
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+        
+</table>
+<table cellspacing="0" cellpadding="0" width="100%">
+    <tr>
+            <td style="width:140px;" class="special_backg">{total_final_hcq_label}</td>
+            <td class="special_lined charges"  > {total_final_hcq}&nbsp;</td>
+            <td style="width:200px;"  class="special_backg">{kscp_price_label} (P/kWh)</td>
+            <td style="width:90px;" class="special_lined charges" > {kspc_load_factor_price}&nbsp; </td>
+    </tr>	
+    {additional_headers}
+</table>
+<br>
+<table cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+		<td colspan="5">&nbsp;</td>
+	</tr>
+	<tr>
+		<td colspan="5" style="text-align:center;font-size: 16px; font-weight: bold;">SUMMARY OF CHARGES (PHP)</td>
+	</tr>
+        <!--
+        <tr>
+		<td colspan="5">&nbsp;</td>
+	</tr>
+        --->
+	<tr>
+		<td style="border-top:1px dotted #cccccc;border-right:1px dotted #cccccc;" >&nbsp;</td>
+		<td style="width:18%; border-top:1px dotted #cccccc;border-right:1px dotted #cccccc; text-align:center; font-weight: bold;" >Before VAT</td>
+		<td style="width:18%; border-top:1px dotted #cccccc;border-right:1px dotted #cccccc; text-align:center;font-weight: bold;" >12% VAT</td>
+		<td style="width:18%; border-top:1px dotted #cccccc; text-align:center;font-weight: bold;" >After VAT</td>
+	</tr>
+        {commercial_power_revenue_rows}
+	
+	<tr>
+		<td style="border-top:1px dotted #cccccc;border-right:1px dotted #cccccc;" class="special_backg" >Market Fee: Previous Billing Period</td>
+		<td style="border-top:1px dotted #cccccc;border-right:1px dotted #cccccc;font-size:12px;" class="charges"> {prev_billing_market_fee_before_vat}	 </td>
+		<td style="border-top:1px dotted #cccccc;border-right:1px dotted #cccccc;font-size:12px;" class="charges">  {prev_billing_market_fee_12percent_vat} 	</td>
+		<td style="border-top:1px dotted #cccccc;font-size:12px;"  class="charges"> {prev_billing_market_fee_after_vat} 	 </td>
+	</tr>
+	<tr>
+		<td style="border-top:1px dotted #cccccc;border-right:1px dotted #cccccc;padding-left:30px;" >{prev_billing_market_fee_billing_period}			</td>
+		<td style="border-top:1px dotted #cccccc;border-right:1px dotted #cccccc;" class="charges"> </td>
+		<td style="border-top:1px dotted #cccccc;border-right:1px dotted #cccccc;" class="charges"> </td>
+		<td style="border-top:1px dotted #cccccc;"  class="charges"> </td>
+	</tr>
+	<tr>
+		<td style="border-top:1px dotted #cccccc;border-right:1px dotted #cccccc;" ></td>
+		<td style="border-top:1px dotted #cccccc;border-right:1px dotted #cccccc;" class="charges"> </td>
+		<td style="border-top:1px dotted #cccccc;border-right:1px dotted #cccccc;" class="charges"></td>
+		<td style="border-top:1px dotted #cccccc;"  class="charges"> </td>
+	</tr>
+	<tr>
+		<td style="border-top:1px dotted #cccccc;border-right:1px dotted #cccccc;" class="special_backg" >DOE ER 1-94 (0% VAT)</td>
+		<td style="border-top:1px dotted #cccccc;border-right:1px dotted #cccccc;font-size:12px;;" class="charges">  {doe_before_vat} 	</td>
+		<td style="border-top:1px dotted #cccccc;border-right:1px dotted #cccccc;font-size:12px;;" class="charges">  {doe_12percent_vat}</td>
+		<td style="border-top:1px dotted #cccccc;font-size:12px;;"  class="charges">  {doe_after_vat} </td>
+	</tr>
+	<tr>
+		<td style="border-top:1px dotted #cccccc;border-right:1px dotted #cccccc;" ></td>
+		<td style="border-top:1px dotted #cccccc;border-right:1px dotted #cccccc;" class="charges"> </td>
+		<td style="border-top:1px dotted #cccccc;border-right:1px dotted #cccccc;" class="charges"></td>
+		<td style="border-top:1px dotted #cccccc;"  class="charges"> </td>
+	</tr>
+        {additional_charges_rows}
+	<tr>
+		<td style="border-bottom:1px solid #cccccc; border-top:1px dotted #cccccc;border-right:1px dotted #cccccc;font-size:12px;; font-weight: bold;" class="special_backg" >TOTAL AMOUNT DUE (Php) </td>
+		<td style="border-bottom:1px solid #cccccc; border-top:1px dotted #cccccc;border-right:1px dotted #cccccc; font-size:15px; font-weight: bold;" class="charges"> {total_amount_due_before_vat}</td>
+		<td style="border-bottom:1px solid #cccccc; border-top:1px dotted #cccccc;border-right:1px dotted #cccccc; font-size:15px; font-weight: bold;" class="charges"> {total_amount_due_12percent_vat}	  </td>
+		<td style="border-bottom:1px solid #cccccc; border-top:1px dotted #cccccc; font-size:15px; font-weight: bold;"  class="charges">{total_amount_due_after_vat} </td>
+	</tr>
+</table>
+<br>
+<table width="100%" id="billing_notes" border="0">
+	<tr><td colspan=4 style="font-size:12px;;">NOTES</td></tr>
+	<tr>
+		<td style="min-width:20px">&nbsp;</td>
+                <td colspan="3">1. {note1}</td>
+	</tr>
+	
+	<tr>
+		<td style="min-width:20px">&nbsp;</td>
+		<td  colspan="3">2. Commercial Power Rate for {billing_period_full} Billing is  <b>Php {commercial_power_rate}/kWh.</b></td>
+	</tr>
+        
+        <!-- here -->
+	<tr>
+            <td>&nbsp;</td>
+            <td >3. Market Fee Calculation (ap x MF):</td>
+            <td style="width:100px;" class="charges"> {market_fee} </td>
+            <td style="width:100px;" style="text-align:left;">&nbsp;PhP </td>
+	</tr>
+        
+        <tr>
+            <td >&nbsp;</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;A. Prev Month's Total Final HCQ (ap):   </td>
+            <td class="charges">{prev_month_total_hcq}</td>
+            <td style="text-align:left;">&nbsp;kWh </td>
+	</tr>
+        
+        <tr>
+            <td >&nbsp;</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;B. Prev Month's Market Fee Rate (MF):   </td>
+            <td class="charges">{prev_month_market_fee_rate}</td>
+            <td style="text-align:left;">&nbsp;PhP/kWh  </td>
+	</tr>
+        
+        <tr>
+            <td>&nbsp;</td>
+            <td>4.  {billing_period_full} Final HCQ (FHCQ):  </td>
+            <td class="charges">{total_final_hcq}  </td>
+            <td style="text-align:left;">&nbsp;kWh   </td>
+	</tr>
+        
+        <tr>
+            <td>&nbsp;</td>
+            <td>5. DOE ER 1-94 (FHCQ x 0.01 PhP/kWh): </td>
+            <td class="charges">{doe_after_vat}</td>
+            <td style="text-align:left;">&nbsp;PhP  </td>
+	</tr>
+        
+        
+	<tr>
+		<td style="min-width:30px">&nbsp;</td>
+		<td colspan="3">6. Pay the total amount due on or before {payment_due_data_full}.</td>
+	</tr>
+	<tr>
+		<td style="min-width:30px">&nbsp;</td>
+		<td  colspan="3">7. Fax the deposit slip of your payment to fax number (032) 272-9794 for a proof of payment.</td>
+	</tr>
+        {additional_notes}
+	<tr>
+		<td colspan="4" style="border-bottom:1px solid #cccccc;">&nbsp;</td>
+	</tr>
+</table>
+<br><br>
+<table cellspacing="0" cellpadding="0" width="100%" id="signatories">
+	<tr>
+		<td style="min-width:25%;text-align:left;">Prepared by:	</td>
+		<td style="min-width:25%;text-align:left;" >Reviewed by:	</td>
+		<td style="min-width:25%;text-align:left;" >Noted by:	</td>
+		<td style="min-width:25%;text-align:left;" >Approved by:</td>
+	</tr>
+	<tr><td colspan=4>&nbsp;</td></tr>
+        <tr><td colspan=4>&nbsp;</td></tr>
+        <tr><td colspan=4>&nbsp;</td></tr>
+        
+	<tr>
+		<td style="min-width:25%; text-decoration:underline; font-weight:bold;text-align:left;">{prepared_by}</td>
+		<td style="min-width:25%; text-decoration:underline; font-weight:bold;text-align:left;" >{reviewed_by}</td>
+		<td style="min-width:25%; text-decoration:underline; font-weight:bold;text-align:left;" >{noted_by}</td>
+		<td style="min-width:25%; text-decoration:underline; font-weight:bold;text-align:left;" >{approved_by}</td>
+	</tr>
+	<tr>
+		<td style="min-width:25%;text-align:left;"> B/S Officer	</td>
+		<td style="min-width:25%;text-align:left;" > B/C Officer	</td>
+		<td style="min-width:25%;text-align:left;" >A/M Marketing		</td>
+		<td style="min-width:25%;text-align:left; " >Marketing Manager</td>
+	</tr>
+</table>
+
+</div>	
+</body>
